@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip3 install Flask
+pip3 install Flask-Session
+pip3 install psycopg2-binary
+pip3 install SQLAlchemy
+pip3 install -U Flask-SQLAlchemy #maybe not needed
+pip3 install requests

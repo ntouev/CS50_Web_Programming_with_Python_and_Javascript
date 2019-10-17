@@ -1,0 +1,18 @@
+{% extends "users/base.html" %}
+
+{% block body %}
+<h1>Login</h1>
+{% if message %}
+    <div>
+        {{ message }}
+    </div>
+{% endif %}
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    <input name="username" type="text" placeholder="username"/>
+    <input name="password" type="password" placeholder="password"/>
+    <input type="submit" value="Login"/>
+</form>
+
+<h2>If you are not a user please <a href='{% url 'users:register' %}'>register</a>!</h2>
+{% endblock %}

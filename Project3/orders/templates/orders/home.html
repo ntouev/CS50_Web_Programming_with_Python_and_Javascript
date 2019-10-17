@@ -1,0 +1,91 @@
+{% extends "orders/base.html" %}
+
+{% block head %}
+    <title>Pinocchio</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/orders/css/style.css">
+    <script src="/static/orders/js/home.js"></script>
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'users:logout' %}">Logout</a>
+    <h1>{{ request.user }}</h1>
+    <form id='food_selection_form'>
+        {% csrf_token %}
+        <select id="food_type">
+            <option value=regular>Regular Pizza</option>
+            <option value=sicilian>Sicilian Pizza</option>
+            <option value=pasta>Pasta</option>
+            <option value=salad>Salad</option>
+            <option value=dinner_platter>Dinner_platter</option>
+        </select>
+    </form>
+
+    <form id="regular" style='display: none;'>
+        {% csrf_token %}
+        <h2>Regular Pizzas</h2>
+        <select id="regular_type">
+            {% for regular in regulars %}
+                <option value="{{ regular.id }}">{{ regular }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <form id="sicilian" style='display: none;'>
+        {% csrf_token %}
+        <h2>Sicilian Pizzas</h2>
+        <select id="sicilian_type">
+            {% for sicilian in sicilians %}
+                <option value="{{ sicilian.id }}">{{ sicilian }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <form id="pasta" style='display: none;'>
+        {% csrf_token %}
+        <h2>Pastas</h2>
+        <select id="pasta_type">
+            {% for pasta in pastas %}
+                <option value="{{ pasta.id }}">{{ pasta }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <form id="salad" style='display: none;'>
+        {% csrf_token %}
+        <h2>Salads</h2>
+        <select id="salad_type">
+            {% for salad in salads %}
+                <option value="{{ salad.id }}">{{ salad }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <form id="dinner_platter" style='display: none;'>
+        {% csrf_token %}
+        <h2>Dinner_platters</h2>
+        <select id="dinner_platter_type">
+            {% for dinner_platter in dinner_platters %}
+                <option value="{{ dinner_platter.id }}">{{ dinner_platter }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <form id="topping_form">
+        {% csrf_token %}
+        <h2>Toppings</h2>
+        {% for topping in toppings %}
+            <input type="checkbox" class="check_class" name="toppings" value="{{topping.name}}">{{topping.name}}<br>
+        {% endfor %}
+    </form>
+
+    <form id="size_form">
+        {% csrf_token %}
+        <h2>choose the size</h2>
+        <input type="radio" name="size" id="small" value="small">Small<br>
+        <input type="radio" name="size" id="large" value="large">Large<br>
+    </form>
+
+    <input id="submit_to_basket" type="submit" value="Submit to basket">
+{% endblock %}
+

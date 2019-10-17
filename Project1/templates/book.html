@@ -1,0 +1,45 @@
+{% extends "user_layout.html" %}
+
+{% block body %}
+
+    <h2>BOOK PAGE</h2>
+
+    <ul>
+        <li>isbn: {{book.isbn}}</li>
+        <li>title: {{book.title}}</li>
+        <li>author: {{book.author}}</li>
+        <li>year: {{book.year}}</li>
+    </ul>
+
+    <h4>GOODREADS INFO</h4>
+    <ul>
+        <li>This book has received {{ work_ratings_count }} reviews with an average of {{ average_rating }}</li>
+    </ul>
+    <br>
+
+    <h4>BOOKreviews' REVIEWS</h4>
+    {% for review in reviews %}
+        {% if review.review_text|length %}
+            <li>
+                {{ review.review_text if review.review_text }}
+            </li>
+        {% endif %}
+    {% endfor %}
+
+    <br>
+    <h4>RATING</h4>
+    {{avg.avg}}
+    <br><br>
+    
+    <h4>Rate this book:</h4>
+    <form action="{{ url_for('book', user_name=user_name, book_title=book.title) }}" method="post">
+        <input type="radio" name="rating" value="1"> 1<br>
+        <input type="radio" name="rating" value="2"> 2<br>
+        <input type="radio" name="rating" value="3"> 3<br>
+        <input type="radio" name="rating" value="4"> 4<br>
+        <input type="radio" name="rating" value="5"> 5<br>
+        <input type="text" name="review_text" placeholder="Submit a review for the book">
+        <button>Submit</button>
+    </form>
+
+{% endblock %}

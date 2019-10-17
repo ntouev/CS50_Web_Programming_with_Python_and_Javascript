@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source venv/bin/activate
+source conf
+
+#Flask-SocketIO bug: issue 817 run with --no-reload to resolve it
+#but then error: "Flask-SocketIO is Running under Werkzeug, WebSocket is not available." occurs
+#add
+#if __name__ == '__main__':
+#    socketio.run(app)
+#and run with python3 application.py, error "WebSocket transport not available.
+#Install eventlet or gevent and gevent-websocket for improved performance." occurs
+#so I install eventlet and I am ok!
+python3 application.py

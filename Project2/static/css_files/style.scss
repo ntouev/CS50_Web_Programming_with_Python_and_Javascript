@@ -1,0 +1,38 @@
+//sass --watch style.scss:style.css
+body {
+    background-color: white;
+    font-family: monospace;
+
+    #user{
+        text-align: center;
+        font-weight: 1000;
+        background-color: blue;
+        color: white;
+        border-radius: 30px;
+    }
+
+    #channels{
+        p{
+            color: blue;
+        }
+    }
+
+    #messages{
+        p{
+            padding: 0.5%;
+            margin-top: 5px;
+            border-radius: 20px;
+            background-color: blue;
+            color: white;
+
+            animation-name: move;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    a:hover{
+        color: orange;
+        text-decoration: none;
+    }
+}

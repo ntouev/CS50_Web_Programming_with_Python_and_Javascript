@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css_files/style.css') }}">
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="/static/home.js"></script>
+        <title>Flack</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="first_bar">
+                <div class="col-md-12">
+                    <form id="new-username">
+                        <input id="username" autocomplete="off" autofocus placeholder="who are you??" type="text">
+                        <input id="submit-username" type="submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row" id="second_bar">
+                <div class="col-md-12">
+                    <a id="logout" href="{{url_for('index')}}" onclick="return clean_localStorage()">Logout</a>
+                </div>
+            </div>
+
+            <div class="row" id="third_bar">
+                <div class="col-md-12">
+                    <h1 id="user"></h1>
+                </div>
+            </div>
+
+            <div class="row" id="fourth_bar">
+                <div class="col-md-4" id="channels">
+                </div>
+                <div class="col-md-4" id="new-message">
+                    <form id="new-message">
+                        <input id="message" autocomplete="off" autofocus placeholder="New message" type="text">
+                        <input id="submit-message" type="submit">
+                    </form>
+                    <form id="new-channel">
+                        <input id="channel" autocomplete="off" autofocus placeholder="New channel" type="text">
+                        <input id="submit-channel" type="submit">
+                    </form>
+                </div>
+                <div class="col-md-4" id="messages">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

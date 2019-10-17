@@ -1,0 +1,9 @@
+export FLASK_APP=application.py
+export FLASK_DEBUG=1
+
+export POSTGRES_HOST=your_host_name
+export POSTGRES_PORT=your_port (DEFAULT: 5432)
+export POSTGRES_DB=your_database_name
+export POSTGRES_USER=your_user_name
+export POSTGRES_PASSWORD=your_password
+export DATABASE_URL=your_host_name://your_user_name:your_password@localhost:your_port/your_database_name
