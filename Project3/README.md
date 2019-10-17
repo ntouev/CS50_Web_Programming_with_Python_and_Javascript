@@ -30,6 +30,7 @@ Then do:
 * $ pip3 install django
 * $ export PINOCCHIO_SECRET_KEY="your_key"
 * $ python3 manage.py migrate
+* Now initialize with some data your DB (examples in /pizza/initializedb.txt)
 * $ python3 manage.py runserver
 
 ## Requirements

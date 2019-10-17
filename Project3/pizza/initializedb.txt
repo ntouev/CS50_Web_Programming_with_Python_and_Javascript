@@ -1,3 +1,7 @@
+run $ python3 manage.py shell in root directory
+and type the following in the interactive shell:
+
+
 from orders.models import Regular, Sicilian, Topping, Sub, Addon, Dinner_platter, Salad, Pasta
 
 r = Regular(type="Cheese", small_value=12.7, large_value=17.95)
